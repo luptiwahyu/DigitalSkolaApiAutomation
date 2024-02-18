@@ -3,7 +3,14 @@ const { expect } = require('chai')
 const url = require('../globalVariable/baseUrl')
 const api = '/objects'
 
-const { objectList, objectDetail, objectCreate } = require('../apiMethod/objects')
+const {
+  objectList,
+  objectDetail,
+  objectCreate,
+  objectUpdate,
+  objectPartiallyUpdate,
+  objectDelete
+} = require('../apiMethod/objects')
 
 describe('Test API Objects', () => {
   it('GET Object List', async () => {
@@ -14,7 +21,19 @@ describe('Test API Objects', () => {
     await objectDetail()
   })
 
-  it('POST Object Create', async () => {
+  it('POST Add Object', async () => {
     await objectCreate()
+  })
+
+  it('PUT Update Object', async () => {
+    await objectUpdate()
+  })
+
+  it('PATCH Partially Update Object', async () => {
+    await objectPartiallyUpdate()
+  })
+
+  it('DELETE Remove Object', async () => {
+    await objectDelete()
   })
 })
